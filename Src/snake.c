@@ -1,27 +1,9 @@
 #include "SSD1331.h"//biblioteka wyswietlacza OLED
 #include "snake.h"
 
-static void initPlay(void)
-{	ssd1331_init();
-    ssd1331_clear_screen(GREEN_BACKGROUND);
-    	ssd1331_display_string(20, 0, "Sssnake", FONT_1608, GREEN);
-    	ssd1331_draw_circle(37,23,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(41,23,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(45,23,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(49,23,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(53,23,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(57,23,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(57,27,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(57,31,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(57,35,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(53,35,SNAKE_RAD, GREEN_SNAKE);
-    	ssd1331_draw_circle(49,35,SNAKE_RAD, YELLOW);
-    	ssd1331_draw_circle(37,35,SNAKE_RAD, RED);
-        ssd1331_display_string(20, 39, "Click blue", FONT_1206, GREEN);
-        ssd1331_display_string(5, 51, "button to play", FONT_1206, GREEN);
-}
+
 //Funkcja inicjalizujaca oraz wyswietlajaca weza na ekranie
-static void initSnake(void)
+void initSnake(void)
 {
 	uint8_t i;
 	snake.size = SNAKE_INIT_SIZE;
@@ -36,7 +18,7 @@ static void initSnake(void)
 		ssd1331_draw_circle(snake.snakeParts[i].x,snake.snakeParts[i].y,SNAKE_RAD, GREEN_SNAKE);
 	}
 }
-static void MoveSnake(uint8_t direction)
+void MoveSnake(uint8_t direction)
 {
 	uint8_t i, partsCount = snake.size,pom_x,pom_y;
 	pom_x=snake.head.x;
