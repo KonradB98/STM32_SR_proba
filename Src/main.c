@@ -84,7 +84,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == Button_Pin)
 	{
-		ssd1331_clear_screen(GREEN_BACKGROUND);
+		ssd1331_clear_screen(BLACK);
 		initSnake();
 	}
 
